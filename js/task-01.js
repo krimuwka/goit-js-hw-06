@@ -1,28 +1,7 @@
-/*
-В HTML есть список категорий ul#categories.
-Напиши скрипт, который выполнит следующие операции.
-- Посчитает и выведет в консоль количество категорий в 
-ul#categories, то есть элементов li.item. 
-Получится 'В списке 3 категории.'.
-- Для каждого элемента li.item в списке ul#categories, 
-найдет и выведет в консоль текст заголовка элемента (тега h2) 
-и количество элементов в категории (всех вложенных в него 
-элементов li).
-Например для первой категории получится:
-Категория: Животные
-Количество элементов: 4
-*/
-
-const categories = document.querySelectorAll(".item");
-
-const categoriesAmount = categories.length;
-console.log("В списке", categoriesAmount, "категории");
-
-const report = Array.from(categories).map((category) => {
-  console.log(
-    "Категория:",
-    category.children[0].textContent,
-    "Количество элементов:",
-    category.children[1].children.length
-  );
-});
+console.log('Number of categories: ', document.querySelectorAll('.item').length);// Number of categories: 3
+console.log('Category: ', document.querySelector('.item').firstElementChild.textContent);// Category: Animals
+console.log('Elements: ', document.querySelector('.item ul').childElementCount);// Elements: 4
+console.log('Category: ', document.querySelectorAll('.item')[1].firstElementChild.textContent);// Category: Products
+console.log('Elements: ', document.querySelectorAll('.item')[1].lastElementChild.childElementCount);// Elements: 3
+console.log('Category: ', document.querySelectorAll('.item')[2].firstElementChild.textContent);// Category: Technologies
+console.log('Elements: ', document.querySelectorAll('.item')[2].lastElementChild.childElementCount);// Elements: 5

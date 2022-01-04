@@ -1,21 +1,12 @@
-/*Напиши скрипт который, при наборе текста 
-в инпуте input#name-input (событие input), 
-подставляет его текущее значение в span#name-output. 
-Если инпут пустой, в спане должна отображаться 
-строка 'незнакомец'.
- */
-
-const input = document.querySelector("#name-input");
-console.dir(input);
-
-const nameForGreeting = document.querySelector("#name-output");
-console.dir(nameForGreeting);
-
-input.addEventListener("input", changeInput);
-
-function changeInput(event) {
-  nameForGreeting.textContent = event.currentTarget.value;
-  if (event.currentTarget.value === "") {
-    nameForGreeting.textContent = "незнакомец";
-  }
+const inputForm = document.querySelector('[id="name-input"]');
+const outPut = document.querySelector('[id="name-output"]');
+console.log('inputForm: ', inputForm)
+console.log('outPut: ',outPut.textContent)
+inputForm.addEventListener('input', onFormSubmit);
+function onFormSubmit(event) {
+    if (event.target.value == "") {
+        outPut.textContent = "Anonymous";
+    } else {
+        outPut.textContent = event.target.value;
+    }
 }
